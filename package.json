@@ -1,0 +1,27 @@
+{
+  "name": "com.mariodebono.so-architecture",
+  "version": "0.2.0",
+  "displayName": "SO Architecture",
+  "description": "A base SO Architecture to build SO Events and variables",
+  "keywords": [
+    "SO",
+    "ScriptableObject",
+    "SO Architecture",
+    "ScriptableObject Architecture",
+    "Events",
+    "Variables"
+  ],
+  "unity": "2019.4",
+  "author": {
+    "name": "Mario Debono",
+    "email": "hello@mariodebono.com",
+    "url": "https://github.com/mariodebono"
+  },
+  "samples": [
+    {
+      "displayName": "Basic Usage (URP)",
+      "description": "Contains sample events and var usage",
+      "path": "Samples~/BasicUsage"
+    }
+  ]
+}

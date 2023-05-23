@@ -1,0 +1,16 @@
+{
+    "name": "MarioDebono.Samples.BasicUsage",
+    "rootNamespace": "MarioDebono.Samples",
+    "references": [
+        "GUID:6c1096c1ae5e4854f868561bcf205c1e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

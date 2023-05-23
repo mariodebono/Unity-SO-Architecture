@@ -1,0 +1,14 @@
+{
+    "name": "SO-Architecture",
+    "rootNamespace": "MarioDebono.SOArchitecture",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
