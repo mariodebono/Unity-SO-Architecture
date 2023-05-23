@@ -14,7 +14,7 @@ Use the URL in the package manager window > Add... Add package from git URL...
 
 > `https://github.com/mariodebono/Unity-SO-Architecture.git#release/stable`
 
-![Add Package from Git URL] (./Documentation~/Resources/Add%20package%20from%20gitURL.jpg)
+![Add Package from Git URL](./Documentation~/Resources/Add%20package%20from%20gitURL.jpg)
 
 Modify your `manifest.json` file found at `/PROJECTNAME/Packages/manifest.json` and add the following line:
 
