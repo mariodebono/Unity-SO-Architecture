@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MarioDebono.Variables
+namespace MarioDebono.SOArchitecture.Variables
 {
     /// <summary>
     /// Provides a base for a variable reference

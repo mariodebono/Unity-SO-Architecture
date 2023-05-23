@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MarioDebono.Variables
+namespace MarioDebono.SOArchitecture.Variables
 {
     /// <summary>
     /// Provides the base for a generic variable type

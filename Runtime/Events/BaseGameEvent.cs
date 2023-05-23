@@ -1,8 +1,10 @@
-﻿using System;
+﻿// Ignore Spelling: Debono
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     /// <summary>
     /// Provides the base structure to create generic events
@@ -14,10 +16,11 @@ namespace MarioDebono.Events
         readonly List<BaseGameEventListener<TArgs>> listeners = new();
 
         public event Action<TArgs> OnRaised = delegate { };
-
+#pragma warning disable CS0414 // Remove unread private members, used by the editor
 #pragma warning disable IDE0052 // Remove unread private members, used by the editor
         [SerializeField] TArgs args = default;
 #pragma warning restore IDE0052 // Remove unread private members, used by the editor
+#pragma warning restore CS0414 // Remove unread private members, used by the editor
 
         /// <summary>
         /// Register a listener to this event

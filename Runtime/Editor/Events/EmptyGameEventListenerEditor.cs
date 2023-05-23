@@ -2,13 +2,14 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     [CustomEditor(typeof(EmptyGameEventListener), true)]
     public class EmptyGameEventListenerEditor : Editor
     {
         EmptyGameEventListener gameEventListener;
-        EmptyGameEvent gameEvent;
+
+        EmptyGameEvent gameEvent = default;
 
         VisualElement constantContainer;
 

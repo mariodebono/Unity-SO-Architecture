@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     [CustomEditor(typeof(EmptyGameEvent), true)]
     public class EmptyGameEventEditor : Editor

@@ -1,8 +1,8 @@
-using MarioDebono.Variables;
+using MarioDebono.SOArchitecture.Variables;
 using UnityEditor;
 using UnityEngine;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     [CustomPropertyDrawer(typeof(BaseVariableReference<,>), true)]
     public class BaseVariableReferenceDrawer : PropertyDrawer
@@ -11,7 +11,6 @@ namespace MarioDebono.Events
 
         SerializedProperty useConstantProp;
         SerializedProperty valueProp;
-
         SerializedProperty varProp;
 
         // commented out because it is temporarily not used

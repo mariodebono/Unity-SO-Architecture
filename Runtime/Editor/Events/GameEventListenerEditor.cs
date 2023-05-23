@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     [CustomEditor(typeof(BaseGameEventListener<>), true)]
     public class GameEventListenerEditor : Editor

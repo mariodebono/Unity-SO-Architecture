@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
 
     [CreateAssetMenu(menuName = "SO Architecture/Events/Empty Game Event", order = -100)]

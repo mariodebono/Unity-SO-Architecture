@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     /// <summary>
     /// Provides a base event listener to receive events with generic arguments

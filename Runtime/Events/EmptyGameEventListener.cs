@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace MarioDebono.Events
+namespace MarioDebono.SOArchitecture.Events
 {
     [AddComponentMenu("SO Architecture/Events/Empty Event Listener")]
     public class EmptyGameEventListener : MonoBehaviour
