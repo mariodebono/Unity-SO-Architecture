@@ -103,6 +103,13 @@ The `Raise Local Event` on the _Event Listener_ will only trigger the `UnityEven
 
 There are no preset variables shipped in this package, I prefer to create only what i need, and it is very simple to add more.
 
+> Variables and References included in pacakge:
+>
+> - FloatVariable
+> - Vector3Variable
+> - IntVariable
+> - BoolVariable
+
 There are two classes that can be extended: `BaseVariable<>` and `BaseVariableReference<,>`
 
 #### **BaseVariable<>**
