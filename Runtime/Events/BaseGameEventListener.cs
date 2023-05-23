@@ -37,6 +37,4 @@ namespace MarioDebono.SOArchitecture.Events
             gameEvent.UnregisterListener(this);
         }
     }
-
-
 }
