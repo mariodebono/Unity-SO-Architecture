@@ -1,6 +1,6 @@
 {
   "name": "com.mariodebono.so-architecture",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "displayName": "SO Architecture",
   "description": "A base SO Architecture to build SO Events and variables",
   "keywords": [
