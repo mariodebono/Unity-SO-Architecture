@@ -8,6 +8,10 @@ I put together this package for reusability to meet my needs and later decided t
 
 ## Installation
 
+> ### NOTE: If you are using `Assembly Definitions` in Unity, You need to reference the editor assembly for the drawers to be used.
+>
+> ### This is due to the use of `dynamic` keyword which is not supported in unity builds.
+
 ### Package Manager Installation
 
 Use the URL in the package manager window > Add... Add package from git URL...
@@ -72,6 +76,7 @@ Following the above example:
 ```csharp
   // PoseEventListener.cs
 
+
   public class PoseEventListener : BaseGameEventListener<PoseEventArgs> {
     public override void OnEventRaised(PoseEventArgs args)
     {
@@ -101,9 +106,9 @@ The `Raise Local Event` on the _Event Listener_ will only trigger the `UnityEven
 
 ### **Variables**
 
-There are no preset variables shipped in this package, I prefer to create only what i need, and it is very simple to add more.
+There are no preset variables shipped in this package, I prefer to create only what I need, and it is very simple to add more.
 
-> Variables and References included in pacakge:
+> Variables and References included in package:
 >
 > - FloatVariable
 > - Vector3Variable
@@ -120,10 +125,10 @@ This class provides the basic structure for a variable, and can be extended with
 
 ```csharp
   // FloatVar.cs
+
   [CreateAssetMenu(menuName = "Variables/Pose Var")]
   public class FloatVar : BaseVariable<float>
   { }
-
 ```
 
 or a more complex type
@@ -137,6 +142,7 @@ or a more complex type
     public Vector3 position;
     public Vector3 rotation;
   }
+
 
   [CreateAssetMenu(menuName = "Variables/Pose Var")]
   public class PoseVar : BaseVariable<Pose>
@@ -155,6 +161,7 @@ You can simply create a specific type:
 
 ```csharp
   // PoseReference.cs
+
   [Serializable]
   public class PoseReference : BaseVariableReference<PoseVar, Pose>
   { }
@@ -169,5 +176,17 @@ Simple Types (most built-in, like `Vector3`, `float`):
 Complex types expand below:
 
 ![Complex Example](./Documentation~/Resources/Complex%20Variable%20UI.jpg)
+
+#### **Disabled GUI (ReadOnly)**
+
+When `GUI.enabled` is set to `false`, the property will be rendered as disabled and fixed to `useConstant = false` (use variable)
+
+The property is still accessible through code.
+
+![Disabled Variable Reference, empty](./Documentation~/Resources/Disabled%20Variable%20Reference.png)
+
+or
+
+![Disabled Variable Reference, With variable](./Documentation~/Resources/Disabled%20Variable%20Reference%2Bvariable.png)
 
 ---

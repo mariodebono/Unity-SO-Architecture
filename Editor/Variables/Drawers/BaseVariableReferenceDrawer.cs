@@ -13,18 +13,21 @@ namespace MarioDebono.SOArchitecture.Events
         SerializedProperty valueProp;
         SerializedProperty varProp;
 
-        // commented out because it is temporarily not used
-        //SerializedProperty varPropObj;
-
         ValueTypes valueType;
-        private bool constantHasChildren;
+        bool constantHasChildren;
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             var height = base.GetPropertyHeight(property, label);
 
-            if (constantHasChildren && valueType == ValueTypes.UseConstant)
-                height += EditorGUI.GetPropertyHeight(valueProp, true);
+            valueProp = property.FindPropertyRelative("constantValue");
+            varProp = property.FindPropertyRelative("variable");
+            useConstantProp = property.FindPropertyRelative("useConstant");
+
+            if (GUI.enabled && constantHasChildren && useConstantProp.boolValue)
+            {
+                height += EditorGUI.GetPropertyHeight(valueProp, valueProp.isExpanded);
+            }
 
             return height;
         }
@@ -36,41 +39,70 @@ namespace MarioDebono.SOArchitecture.Events
             varProp = property.FindPropertyRelative("variable");
             useConstantProp = property.FindPropertyRelative("useConstant");
 
-            valueType = useConstantProp.boolValue ? ValueTypes.UseConstant : ValueTypes.UseVariable;
+            if (!GUI.enabled)
+            {
+                valueType = ValueTypes.UseVariable;
+                useConstantProp.boolValue = false;
+            }
+            else
+            {
+                valueType = useConstantProp.boolValue ? ValueTypes.UseConstant : ValueTypes.UseVariable;
+            }
+
+            var labelPosition = position;
+            labelPosition.width = EditorGUIUtility.labelWidth;
+
+            if (valueProp.hasChildren && useConstantProp.boolValue)
+            {
+                GUI.Box(position, "");
+            }
 
             // label
-            EditorGUI.PrefixLabel(position, label);
+            EditorGUI.PrefixLabel(labelPosition, new GUIContent(property.displayName));
 
             var fieldPosition = position;
-            fieldPosition.x += EditorGUIUtility.labelWidth;
+            fieldPosition.x = position.x + EditorGUIUtility.labelWidth;
             fieldPosition.width = 20;
             fieldPosition.height = EditorGUIUtility.singleLineHeight;
 
-
-
             valueType = (ValueTypes)EditorGUI.EnumPopup(fieldPosition, valueType);
+            useConstantProp.boolValue = (valueType == ValueTypes.UseConstant) ? true : false;
 
             var otherFieldPosition = position;
             // start from previous position to end of screen
             otherFieldPosition.x += EditorGUIUtility.labelWidth + 23;
-            otherFieldPosition.width = EditorGUIUtility.currentViewWidth - otherFieldPosition.x;
+            otherFieldPosition.width = EditorGUIUtility.currentViewWidth - otherFieldPosition.x - 5;
             otherFieldPosition.height = EditorGUIUtility.singleLineHeight;
 
             switch (valueType)
             {
                 case ValueTypes.UseConstant:
                     {
-                        useConstantProp.boolValue = true;
                         constantHasChildren = valueProp.hasChildren;
                         if (!constantHasChildren)
-                            EditorGUI.PropertyField(otherFieldPosition, valueProp, new GUIContent(""), false);
+                        {
+                            var tmpWidth = EditorGUIUtility.labelWidth;
+                            GUIContent contentLabel = new GUIContent();
+                            switch (valueProp.type)
+                            {
+                                case "int":
+                                case "float":
+                                    EditorGUIUtility.labelWidth = 18;
+                                    contentLabel = EditorGUIUtility.IconContent("d_Preset.Context");
+                                    break;
+                                default:
+                                    break;
+
+                            }
+                            EditorGUI.PropertyField(otherFieldPosition, valueProp, contentLabel, false);
+                            EditorGUIUtility.labelWidth = tmpWidth;
+                        }
                         else
                             EditorGUI.LabelField(otherFieldPosition, "Complex Value");
                         break;
                     }
                 case ValueTypes.UseVariable:
                     {
-                        useConstantProp.boolValue = false;
                         EditorGUI.ObjectField(otherFieldPosition, varProp, new GUIContent(""));
                     }
                     break;
@@ -78,33 +110,24 @@ namespace MarioDebono.SOArchitecture.Events
 
             if (valueProp.hasChildren && useConstantProp.boolValue)
             {
-                var ExpandedPosition = position;
-                ExpandedPosition.y = EditorGUIUtility.singleLineHeight;
-                ExpandedPosition.x += 5;
-                ExpandedPosition.width = EditorGUIUtility.currentViewWidth - 5;
-                EditorGUI.PropertyField(ExpandedPosition, valueProp, new GUIContent("Constant Value"), true);
+
+                var expandedPosition = position;
+                expandedPosition.y = position.y + EditorGUIUtility.singleLineHeight;
+                expandedPosition.x += 12; // indent to fit under label
+                expandedPosition.width = EditorGUIUtility.currentViewWidth - expandedPosition.x - 5; // keep 5 from edge
+
+                var tmpWidth = EditorGUIUtility.labelWidth;
+                EditorGUIUtility.labelWidth = tmpWidth - 12; // moved 5 above
+
+                var foldoutPosition = expandedPosition;
+                foldoutPosition.height = EditorGUIUtility.singleLineHeight;
+
+                // default inspector
+                EditorGUI.PropertyField(expandedPosition, valueProp, new GUIContent(valueProp.displayName), true);
+
+                property.serializedObject.ApplyModifiedProperties();
             }
-            // Undecided if the actual SO should be expanded here and lose the one-line design or not
-
-            // expand the object for editing
-            //if (varProp.objectReferenceValue != null && valueType == ValueTypes.UseVariable)
-            //{
-            //    varPropObj = new SerializedObject(varProp.objectReferenceValue).FindProperty("value");
-            //    EditorGUI.BeginChangeCheck();
-
-            //    EditorGUILayout.PropertyField(varPropObj, true);
-
-            //    if (EditorGUI.EndChangeCheck())
-            //    {
-            //        (varProp.objectReferenceValue as dynamic).value = varPropObj.boxedValue as dynamic;
-            //    }
-
-            //    if (EditorGUI.EndChangeCheck())
-            //    {
-
-            //    }
-
-            //}
         }
+
     }
 }
