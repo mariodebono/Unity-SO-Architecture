@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "displayName": "SO Architecture",
   "description": "A base SO Architecture to build SO Events and variables",
-  "documentation": "https://github.com/mariodebono/Unity-SO-Architecture#readme",
+  "documentationUrl": "https://github.com/mariodebono/Unity-SO-Architecture#readme",
   "keywords": [
     "SO",
     "ScriptableObject",
