@@ -1,4 +1,4 @@
-using MarioDebono.Variables;
+using MarioDebono.SOArchitecture.Variables;
 using System;
 
 namespace MarioDebono.Samples.BasicUsage

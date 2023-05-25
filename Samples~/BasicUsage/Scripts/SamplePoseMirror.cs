@@ -1,6 +1,3 @@
-using MarioDebono.Samples.BasicUsage.EventArgs;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MarioDebono.Samples.BasicUsage

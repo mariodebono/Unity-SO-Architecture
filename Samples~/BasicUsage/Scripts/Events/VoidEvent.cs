@@ -1,5 +1,5 @@
 using UnityEngine;
-using MarioDebono.Events;
+using MarioDebono.SOArchitecture.Events;
 
 namespace MarioDebono.Samples.BasicUsage
 {
