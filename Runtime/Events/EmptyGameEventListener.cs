@@ -7,9 +7,9 @@ namespace MarioDebono.SOArchitecture.Events
     public class EmptyGameEventListener : MonoBehaviour
     {
         [Tooltip("The game event type to listen for")]
-        [SerializeField] EmptyGameEvent gameEvent;
+        [SerializeField] protected EmptyGameEvent gameEvent;
         [Tooltip("An event to trigger in response of a raised event")]
-        [SerializeField] UnityEvent eventResponse;
+        [SerializeField] protected UnityEvent eventResponse;
 
         /// <summary>
         /// This method is called when the referenced event is raised
@@ -17,6 +17,14 @@ namespace MarioDebono.SOArchitecture.Events
         public virtual void OnEventRaised()
         {
             eventResponse.Invoke();
+        }
+
+        public void RaiseAttachedGameEvent()
+        {
+            if (gameEvent != null)
+            {
+                gameEvent.Raise();
+            }
         }
 
         private void OnEnable()

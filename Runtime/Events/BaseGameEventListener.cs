@@ -27,6 +27,14 @@ namespace MarioDebono.SOArchitecture.Events
             eventResponse.Invoke(args);
         }
 
+        public void RaiseAttachedGameEvent(TArgs args)
+        {
+            if (gameEvent != null)
+            {
+                gameEvent.Raise(args);
+            }
+        }
+
         protected virtual void OnEnable()
         {
             gameEvent.RegisterListener(this);

@@ -96,11 +96,10 @@ namespace MarioDebono.SOArchitecture.Events
 
         private void RaiseAllEventClicked(ClickEvent evt)
         {
-            if (gameEvent != null)
-            {
-                var args = (dynamic)argProperty.boxedValue;
-                gameEvent.Raise(args);
-            }
+
+            var args = (dynamic)argProperty.boxedValue;
+            gameEventListener.RaiseAtachedGameEvent(args);
+
         }
 
         private void RaiseEventClicked(ClickEvent evt)

@@ -1,3 +1,4 @@
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -8,8 +9,6 @@ namespace MarioDebono.SOArchitecture.Events
     public class EmptyGameEventListenerEditor : Editor
     {
         EmptyGameEventListener gameEventListener;
-
-        EmptyGameEvent gameEvent = default;
 
         VisualElement constantContainer;
 
@@ -88,10 +87,7 @@ namespace MarioDebono.SOArchitecture.Events
 
         private void RaiseAllEventClicked(ClickEvent evt)
         {
-            if (gameEvent != null)
-            {
-                gameEvent.Raise();
-            }
+            gameEventListener.RaiseAttachedGameEvent();
         }
 
         private void RaiseEventClicked(ClickEvent evt)
