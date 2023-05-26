@@ -1,6 +1,6 @@
 {
   "name": "com.mariodebono.so-architecture",
-  "version": "0.4.4-rc.0",
+  "version": "0.4.4",
   "displayName": "SO Architecture",
   "description": "A base SO Architecture to build SO Events and variables",
   "documentationUrl": "https://github.com/mariodebono/Unity-SO-Architecture#readme",
@@ -30,8 +30,12 @@
   ],
   "auto-changelog": {
     "output": "CHANGELOG.md",
-    "template": "keepachangelog",
+    "template": "changelog-template.hbs",
     "unreleased": false,
-    "commitLimit": false
+    "commitLimit": false,
+    "breakingPattern": "BREAKING",
+    "ignoreCommitPattern": "^[Cc][Hh][Oo][Rr][Ee].?:?",
+    "issuePattern": "^[Ff][Ii][xX].?:?",
+    "issueUrl": "https://github.com/mariodebono/Unity-SO-Architecture/"
   }
 }
