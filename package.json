@@ -30,7 +30,7 @@
   ],
   "auto-changelog": {
     "output": "CHANGELOG.md",
-    "template": "changelog-template.hbs",
+    "template": "templates~/changelog-template.hbs",
     "unreleased": false,
     "commitLimit": false,
     "breakingPattern": "BREAKING",
