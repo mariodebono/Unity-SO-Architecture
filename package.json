@@ -30,11 +30,12 @@
   ],
   "auto-changelog": {
     "output": "CHANGELOG.md",
-    "template": "keepachangelog",
+    "template": "changelog-template.hbs",
     "unreleased": false,
     "commitLimit": false,
     "breakingPattern": "BREAKING",
+    "ignoreCommitPattern": "^[Cc][Hh][Oo][Rr][Ee].?:?",
     "issuePattern": "^[Ff][Ii][xX].?:?",
-    "ignoreCommitPattern": "^[Cc][Hh][Oo][Rr][Ee].?:?"
+    "issueUrl": "https://github.com/mariodebono/Unity-SO-Architecture/"
   }
 }
