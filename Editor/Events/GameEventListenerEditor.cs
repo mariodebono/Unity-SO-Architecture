@@ -98,7 +98,7 @@ namespace MarioDebono.SOArchitecture.Events
         {
 
             var args = (dynamic)argProperty.boxedValue;
-            gameEventListener.RaiseAtachedGameEvent(args);
+            gameEventListener.RaiseAttachedGameEvent(args);
 
         }
 
