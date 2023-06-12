@@ -24,7 +24,8 @@ namespace MarioDebono.SOArchitecture.Events
             varProp = property.FindPropertyRelative("variable");
             useConstantProp = property.FindPropertyRelative("useConstant");
 
-            if (GUI.enabled && constantHasChildren && useConstantProp.boolValue)
+            // Handle Strings single Line
+            if (GUI.enabled && (constantHasChildren && valueProp.type != "string") && useConstantProp.boolValue)
             {
                 height += EditorGUI.GetPropertyHeight(valueProp, valueProp.isExpanded);
             }
@@ -79,7 +80,8 @@ namespace MarioDebono.SOArchitecture.Events
                 case ValueTypes.UseConstant:
                     {
                         constantHasChildren = valueProp.hasChildren;
-                        if (!constantHasChildren)
+                        // Handle Strings single Line
+                        if (!constantHasChildren || valueProp.type == "string")
                         {
                             var tmpWidth = EditorGUIUtility.labelWidth;
                             GUIContent contentLabel = new GUIContent();
@@ -107,8 +109,8 @@ namespace MarioDebono.SOArchitecture.Events
                     }
                     break;
             }
-
-            if (valueProp.hasChildren && useConstantProp.boolValue)
+            // Handle Strings single Line
+            if ((valueProp.hasChildren && valueProp.type != "string") && useConstantProp.boolValue)
             {
 
                 var expandedPosition = position;
