@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace MarioDebono.SOArchitecture.Variables
 {
+
     /// <summary>
     /// Provides a base for a variable reference
     /// </summary>
@@ -11,7 +12,7 @@ namespace MarioDebono.SOArchitecture.Variables
     [Serializable]
     public abstract class BaseVariableReference<TVar, TValue>
         where TVar : BaseVariable<TValue>
-        where TValue : struct
+        //where TValue : struct
     {
         [SerializeField] bool useConstant = false;
         [SerializeField] public TValue constantValue;
